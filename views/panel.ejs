@@ -1,0 +1,34 @@
+<%- include('./partials/header'); -%>
+
+<div class="container">
+	<div class="jumbotron">
+  		<div class="container">
+  			<h1 class="display-4">
+  				Hello,
+  				<% if(user=="admin"){%>
+  					Admin
+  				<%}else{%>
+  					Receiptionist <%=user%>
+  				<%}%>
+  			</h1>
+  			<hr class="my-4">
+  			
+		</div>
+	</div>
+  
+  <canvas id="chartjs-4" class="chartjs" width="278" height="139" style="display: block; width: 278px; height: 139px;"></canvas>
+  <script>
+  new Chart(document.getElementById("chartjs-4"),
+  {"type":"pie",
+    "data":{"labels":["Doctor","Patient"],
+            "datasets":[{"label":"My First Dataset",
+                         "data":[<%DocCount%><%PatCount%>],
+                         "backgroundColor":["rgb(255, 99, 132)","rgb(54, 162, 235)"]
+                         }]
+            }
+  });
+  </script>
+    
+    
+</body>
+ <%- include('./partials/footer'); -%>

@@ -1,0 +1,69 @@
+<%- include('../partials/formpartial'); -%>
+
+
+
+
+
+<div class="modal-dialog text-center form-page">
+    <div class="col-sm-9 main-section">
+    <h1 class="ftitle">Add New Appointment</h1>
+      <div class="modal-content">
+          <div class="col-12">
+          <h1></h1>
+        </div>
+
+        <div class="col-12 form-input">
+         		<form action="addAppointment" method="POST">
+			<div class="form-group">
+				
+				<input class="form-control" type="text" placeholder="enter name" name="pname" pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$' required>
+			</div>
+			<div class="form-group">
+				
+				<input class="form-control" type="text" placeholder="enter Reason" name="reason" pattern='[a-zA-Z][a-zA-Z ]+[a-zA-Z]$' required>
+			</div>
+			<div class="form-group">
+				
+				<input class="form-control text-center" type="datetime-local" name="ddate" required>
+			</div>
+
+			
+
+			<div class="form-group">
+				<label for="name" class="labels">select Doctor</label>
+				<select class="form-control" name="dname" id="name">
+					<%doctor.forEach(function(doctor){%>
+  						<option value="<%=doctor.dname%>"><%=doctor.dname%></option>
+  					<%});%>
+				</select>
+			</div>
+
+ 
+			
+			
+			<button type="submit" class="btn btn-success">submit</button>
+            <div class="goback">
+            <a class="btn btn-warning btn-lg" href="/getAppointment">Go back!</a>
+            </div>
+
+				
+				
+				
+	
+			</form>
+
+
+        </div>
+
+   
+
+      </div>
+    </div>
+</div>
+
+
+	
+
+
+
+<%- include('../partials/footer'); -%>
